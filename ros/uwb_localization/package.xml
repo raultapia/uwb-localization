@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>uwb_localization</name>
+  <version>1.0.0</version>
+  <description>Range-only localization based on UWB for small-scale aerial robots</description>
+  <maintainer email="raultapia@us.es">Raul Tapia</maintainer>
+  <maintainer email="igrodriguez@us.es">Ivan Guitierrez</maintainer>
+  <maintainer email="javierluna@us.es">Javier Luna</maintainer>
+  <license>GPLv3</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>nav_msgs</build_depend>
+  <build_depend>uwb_utils</build_depend>
+  <build_export_depend>roscpp</build_export_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <build_export_depend>std_msgs</build_export_depend>
+  <build_export_depend>geometry_msgs</build_export_depend>
+  <build_export_depend>nav_msgs</build_export_depend>
+  <build_export_depend>uwb_utils</build_export_depend>
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+  <exec_depend>uwb_utils</exec_depend>
+  <export>
+  </export>
+</package>

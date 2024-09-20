@@ -1,0 +1,31 @@
+---
+topic: "/uwb/ranges"
+time_out_vel_upd: 1  # s
+pos_std: 0.01  # m
+vel_std: 0.01  # m/s
+rho_std: 0.6  # m
+anchors:
+  - id: 1
+    x: 2.38
+    y: 0.00
+    z: 1.89
+  - id: 2
+    x: 6.76
+    y: 0.00
+    z: 1.29
+  - id: 3
+    x: 0.00
+    y: 4.37
+    z: 1.19
+  - id: 4
+    x: 2.38
+    y: 8.74
+    z: 1.74
+  - id: 5
+    x: 6.76
+    y: 8.74
+    z: 0.37
+  - id: 6
+    x: 8.98
+    y: 4.37
+    z: 1.94

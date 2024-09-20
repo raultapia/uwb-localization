@@ -1,0 +1,14 @@
+<launch>
+    <!-- Parameters -->
+    <rosparam command="load" file="$(find uwb_localization)/config/config_map_130324.yaml"/>
+
+    <!-- Localization node -->
+    <node pkg="uwb_localization" type="uwb_localization_node" name="uwb_localization" output="screen"/>
+
+    <!-- Anchor node -->
+    <node pkg="uwb_utils" name="position_server" type="position_server" output="screen"/>
+
+    <!-- Rviz Visualization -->
+    <node pkg="uwb_utils" name="map_visualization" type="map_visualization" output="screen"/>
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find uwb_utils)/rviz/config.rviz" />
+</launch>

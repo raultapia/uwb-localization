@@ -1,0 +1,30 @@
+cmake_minimum_required(VERSION 3.5)
+project(uwb_utils)
+
+find_package(catkin REQUIRED COMPONENTS roscpp std_msgs geometry_msgs visualization_msgs message_generation)
+add_message_files(FILES UWB.msg)
+add_service_files(FILES AnchorService.srv)
+generate_messages(DEPENDENCIES std_msgs geometry_msgs)
+catkin_package(CATKIN_DEPENDS std_msgs geometry_msgs message_runtime)
+
+add_library(serial third-party/serial/src/serial.cc third-party/serial/src/impl/list_ports/list_ports_linux.cc third-party/serial/src/impl/unix.cc)
+target_link_libraries(serial rt)
+target_include_directories(serial PRIVATE third-party/serial/include)
+target_compile_options(serial PRIVATE "-w")
+
+add_executable(serial_arduino src/serial_read.cpp)
+add_dependencies(serial_arduino ${catkin_EXPORTED_TARGETS})
+target_link_libraries(serial_arduino serial ${catkin_LIBRARIES})
+target_include_directories(serial_arduino SYSTEM PRIVATE ${catkin_INCLUDE_DIRS})
+
+add_executable(position_server src/position_server.cpp)
+add_dependencies(position_server ${catkin_EXPORTED_TARGETS})
+target_link_libraries(position_server ${catkin_LIBRARIES})
+target_include_directories(position_server PRIVATE include)
+target_include_directories(position_server SYSTEM PRIVATE include ${catkin_INCLUDE_DIRS})
+
+add_executable(map_visualization src/landmark_pub.cpp)
+add_dependencies(map_visualization ${catkin_EXPORTED_TARGETS})
+target_link_libraries(map_visualization ${catkin_LIBRARIES})
+target_include_directories(map_visualization PRIVATE include)
+target_include_directories(map_visualization SYSTEM PRIVATE include ${catkin_INCLUDE_DIRS})
